@@ -46,6 +46,26 @@
 ---
 ## Question 2: Design OLAP Cube
 
+<img width="1359" height="664" alt="OLAP_Cube" src="https://github.com/user-attachments/assets/b7c21fb3-695a-4218-9732-5564133da055" />
+
+An OLAP (Online Analytical Processing) cube is used for multidimensional analysis of the data.  
+It allows slicing, dicing, and drilling down into data across different dimensions.
+
+### Cube Structure
+
+- **Axis 1 (Rows):** Cities from the **Customers** table  
+  - Hyderabad, Bangalore, Delhi, Mumbai, Chennai  
+
+- **Axis 2 (Columns):** Months from the **Dates** table  
+  - Jan, Feb, Mar, Apr  
+
+- **Axis 3 (Diagonal):** Products from the **Sales** table  
+  - Laptop, Phone, Tablet, Monitor  
+
+### Purpose
+- Enables analysis of **sales data** across multiple perspectives (City, Month, Product).  
+- Example: Compare Laptop sales in **Hyderabad (Rows)** during **March (Columns)**.  
+- Helps identify trends and insights quickly using a multidimensional structure.
 
 ---
 
