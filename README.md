@@ -1,6 +1,8 @@
 # BI_Assignment
 
 #### Prepared by Gunti Samhitha (160122737147) and M Sudha Jennifer (160122737150) from IT 3 , 4th year
+#### GitHub Link: https://github.com/Samhitha1416/PowerBI_Dashboard
+
 ## Question 1: Perform ETL for Retail Data
 
 ### Customers Table
