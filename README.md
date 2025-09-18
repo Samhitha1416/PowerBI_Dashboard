@@ -4,9 +4,10 @@
 #### GitHub Link: https://github.com/Samhitha1416/PowerBI_Dashboard
 
 ## Question 1: Perform ETL for Retail Data
-![alt text](screenshots/question1_1.jpg)
 
-![alt text](screenshots/question1_2.jpg)
+<img width="1359" height="600" alt="question1_1" src="screenshots/question1_1.jpg" /> 
+
+<img width="1359" height="600" alt="question1_2" src="screenshots/question1_2.jpg" />
 
 KNIME Workflow – Data Preprocessing and Export
 
@@ -39,7 +40,7 @@ How It Was Created
 ---
 ## Question 2: Design OLAP Cube
 
-![olap_cube_execution](screenshots/olap_cube_execution.png) 
+<img width="1359" height="600" alt="olap_cube_execution" src="screenshots/olap_cube_execution.png" />
 
 An OLAP (Online Analytical Processing) cube is used for multidimensional analysis of the data.  
 It allows slicing, dicing, and drilling down into data across different dimensions.
