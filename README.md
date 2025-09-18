@@ -5,69 +5,25 @@
 
 ## Question 1: Perform ETL for Retail Data
 
-### Customers Table
-- Columns renamed for clarity:
-  - `City` → `CustomerCity`
-  - `Age` → `CustomerAge`
-- Makes column names more descriptive and easier to use in the model.
-- Table. RenameColumns (#"Changed Type", {{"City", "CustomerCity"}, {"Age", "CustomerAge"}})
-
-<img width="1359" height="600" alt="Screenshot 2025-09-08 225354" src="https://github.com/user-attachments/assets/5c2d30c6-dc63-4aaf-a844-4c2effcae8f7" />
-
-
-### Sales Table
-- Columns renamed and new calculated column created:
-  - `Product` → `ProductName`
-  - `Order ID` → `OrderID`
-  - New column `Sales` = `Quantity × Price` (total sales amount for each order).
-  - Table. RenameColumns (#"Changed Type", {{"Product", "ProductName"}})
-
-<img width="1359" height="600" alt="Screenshot 2025-09-08 225448" src="https://github.com/user-attachments/assets/f23e5648-eebf-4b32-9d4c-f1d098ea5847" />
-
-
-### Dates Table
-- Data types adjusted for correct handling:
-  - `DateID` → `Int64.Type`
-  - `Date` → `Date.Type`
-  - `Month` → correct type (text/number depending on usage).
-- Ensures correct time-based analysis in Power BI.
-- Table. TransformColumnTypes (#"Promoted Headers", {{"DateID", Int64.Type}, {"Date", Int64. Type}, {"Month", type}})
-
-<img width="1359" height="600" alt="Screenshot 2025-09-08 225422" src="https://github.com/user-attachments/assets/215e6a8b-e458-43f3-893b-1c80dfe0782e" />
-
-### Visualizations (Dashboard)
-
-- **Pie Chart:** Sum of Price by ProductName → shows top revenue-contributing products.  
-- **Clustered Column Chart:** Sum of Quantity & Sales by Category → compares sales volume vs. value.  
-- **Scatter Chart:** Price vs. Sales by ProductName & Category → shows product performance patterns.  
-- **Line Chart:** CustomerAge by CustomerCity → highlights demographic trends.  
-- **Bar & Donut Charts:** Price by ProductName and CustomerID by City → insights into product performance and customer distribution.
-
-  <img width="1359" height="600" alt="Screenshot 2025-09-08 230752" src="https://github.com/user-attachments/assets/937b2ac0-90a2-470d-9ac6-48662d982635" />
 
 ---
 ## Question 2: Design OLAP Cube
 
-<img width="1359" height="600" alt="OLAP_Cube" src="https://github.com/user-attachments/assets/b7c21fb3-695a-4218-9732-5564133da055" />
 
 An OLAP (Online Analytical Processing) cube is used for multidimensional analysis of the data.  
 It allows slicing, dicing, and drilling down into data across different dimensions.
 
-### Cube Structure
+The Fact Product measure group is part of the OLAP cube created in SQL Server Analysis Services (SSAS). A measure group is built from a fact table in the data warehouse and contains the aggregated numerical values (measures) that can be analyzed across different dimensions. In this case, the source fact table is FactProduct, which stores product-related sales data.
 
-- **Axis 1 (Rows):** Cities from the **Customers** table  
-  - Hyderabad, Bangalore, Delhi, Mumbai, Chennai  
+How it was created
 
-- **Axis 2 (Columns):** Months from the **Dates** table  
-  - Jan, Feb, Mar, Apr  
+1. In SQL Server Data Tools (SSDT) or SSAS, create a new cube and select the FactProduct table as the fact table.
+2. Define the measures (e.g., Product Count, Sales Amount, Quantity Sold) from the numeric columns of the fact table.
+3. Add dimension relationships by linking the FactProduct table with related dimension tables such as Product, Date, and Customer.
+4. Deploy the cube to the SSAS server.
+5. Process the cube so that the Fact Product measure group is populated with data in MOLAP storage mode.
 
-- **Axis 3 (Diagonal):** Products from the **Sales** table  
-  - Laptop, Phone, Tablet, Monitor  
-
-### Purpose
-- Enables analysis of **sales data** across multiple perspectives (City, Month, Product).  
-- Example: Compare Laptop sales in **Hyderabad (Rows)** during **March (Columns)**.  
-- Helps identify trends and insights quickly using a multidimensional structure.
+After deployment and processing, the Fact Product measure group becomes queryable in the OLAP cube, allowing users to slice and dice product measures across different dimensions.
 
 ---
 
