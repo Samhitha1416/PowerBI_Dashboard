@@ -4,11 +4,42 @@
 #### GitHub Link: https://github.com/Samhitha1416/PowerBI_Dashboard
 
 ## Question 1: Perform ETL for Retail Data
+![alt text](screenshots/question1_1.jpg)
 
+![alt text](screenshots/question1_2.jpg)
+
+KNIME Workflow – Data Preprocessing and Export
+
+This workflow demonstrates how raw data is read, cleaned, transformed, and exported using the KNIME Analytics Platform.
+
+Workflow Steps:
+
+1. CSV Reader – Imports the dataset (in this case, an Excel file converted to CSV).
+2. Missing Value Node – Handles missing values by either replacing them with defaults or removing incomplete records.
+3. Rule Engine – Applies custom logic to create new columns or transform existing data based on conditions.
+4. Rule Engine (second use) – Adds additional transformation rules to refine the dataset further.
+5. Column Filtering – Keeps only the required attributes, removing unnecessary columns.
+6. Date&Time Math Formula – Performs operations on date/time fields (e.g., calculating durations, differences, or new time-based features).
+7. CSV Writer – Exports the processed dataset into a new CSV file for further use.
+
+How It Was Created
+
+1. Open KNIME Analytics Platform.
+2. Drag and drop nodes from the Node Repository (CSV Reader, Missing Value, Rule Engine, etc.) into the workflow editor.
+3. Connect the nodes sequentially to define the data flow.
+4. Configure each node:
+    -Set input file path in CSV Reader.
+    -Define replacement rules in Missing Value.
+    -Write transformation rules in Rule Engine.
+    -Select relevant attributes in Column Filter.
+    -Apply date/time formulas in Date&Time Math Formula.
+    -Save final data with CSV Writer.
+5. Execute the workflow step by step until the final dataset is generated and saved.
 
 ---
 ## Question 2: Design OLAP Cube
 
+![olap_cube_execution](screenshots/olap_cube_execution.png) 
 
 An OLAP (Online Analytical Processing) cube is used for multidimensional analysis of the data.  
 It allows slicing, dicing, and drilling down into data across different dimensions.
